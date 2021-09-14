@@ -662,9 +662,11 @@ h5.card-title{
 
     let title = document.querySelector(".ultimate-card-eminem .card-body h6")
     let img = document.querySelector(".ultimate-card-eminem img")
+    let artistName = document.querySelector(".ultimate-card-eminem .card-body p")
 
     title.innerHTML = body.data[1].title
     img.src = body.data[1].album.cover_medium
+    artistName.innerHTML = body.data[1].artist.name
 
 
 
