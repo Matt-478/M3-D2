@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-  <title>Homepage</title>
+  <title>Striveify</title>
 
   <!-- FAVICON -->
   <link rel = "icon" href = 
@@ -73,7 +73,7 @@ h5.card-title{
 </head>
 
 <body class="container-fluid">
-  <div class="mx-0 px-0 container-fluid d-flex flex-column"">
+  <div class="mx-0 px-0 container-fluid d-flex flex-column">
     <div class="row">
       <div class="col-2">
         <!----SIDEBAR-->
@@ -485,7 +485,7 @@ h5.card-title{
 
 <div class="container-fluid d-flex justify-content-start flex-wrap mb-5 pb-5">
 
-  <div class="card p-2 cb mx-2 mb-4" style="min-width: 150px; max-width: 200px;">
+  <div class="card p-2 cb mx-2 mb-4  ultimate-card-eminem" style="min-width: 150px; max-width: 200px;">
     <img src="https://images.pond5.com/sad-desperate-man-working-night-footage-089780757_prevstill.jpeg" class="card-img-top" alt="..." style="height: 182px; width: 182px; object-fit: cover;">
     <div class="card-body">
       <h6 class="card-title">Striving For Excellence</h6>
@@ -624,18 +624,6 @@ h5.card-title{
     </div>
   </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>
@@ -645,24 +633,64 @@ h5.card-title{
 
 
 
+
+
+
+
+
+
+
 <script>
   window.onload = () => {
+
     fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem", {
-  	"method": "GET",
-  	"headers": {
-  		"x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
-  		"x-rapidapi-key": "87cf04f455mshd260e6df25f60bap1b8868jsne2efda3b987d"
-  	}
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+		"x-rapidapi-key": "87cf04f455mshd260e6df25f60bap1b8868jsne2efda3b987d"
+	}
   })
   .then(response => {
   	console.log(response)
     return response.json()
   })
-  // .then(data => console.log(data))
+  // DOM stuff
+  .then(body => {
+    console.log(body)
+    console.log(body.data[1].title)
+
+
+    let title = document.querySelector(".ultimate-card-eminem .card-body h6")
+    let img = document.querySelector(".ultimate-card-eminem img")
+
+    title.innerHTML = body.data[1].title
+    img.src = body.data[1].album.cover_medium
+
+
+
+
+  })
   .catch(err => {
   	console.error(err)
   });
   }
+
+//   fetch("https://deezerdevs-deezer.p.rapidapi.com/track/metallica", {
+// 	"method": "GET",
+// 	"headers": {
+// 		"x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+// 		"x-rapidapi-key": "87cf04f455mshd260e6df25f60bap1b8868jsne2efda3b987d"
+// 	}
+// })
+// .then(response => {
+//   console.log(response)
+//   return response.json()
+// })
+// .then(data => {
+//   console.log(data)
+// })
+// .catch(err => {
+// 3
 </script>
 
 
