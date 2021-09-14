@@ -506,7 +506,7 @@ h5.card-title{
       </a>
      </div>
   </div>
-  <div class="card p-2 cb mx-2 mb-4" style="min-width: 150px; max-width: 200px;">
+  <div class="card p-2 cb mx-2 mb-4 ultimate-card-behemot" style="min-width: 150px; max-width: 200px;">
     <img src="https://i.pinimg.com/736x/ef/b7/98/efb798708bdd41dff69b6052ba7da34f.jpg" class="card-img-top" alt="...">
     <div class="card-body">
       <h6 class="card-title">Best Of Folk 1585</h6>
@@ -650,7 +650,7 @@ h5.card-title{
 	}
   })
       .then(response => {
-      	console.log(response)
+      	// console.log(response)
         return response.json()
       })
       // DOM stuff
@@ -680,11 +680,9 @@ h5.card-title{
 	}
   })
       .then(response => {
-      	console.log(response);
         return response.json()
       })
       .then(body => {
-        // console.log(body)
         console.log(body.data[1])
 
         let titleMetallica = document.querySelector(".ultimate-card-metallica .card-body h6")
@@ -700,9 +698,39 @@ h5.card-title{
     })
   }
 
+  function behemothChange () {
+    fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=behemoth", {
+    "method": "GET",
+    "headers": {
+    	"x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+    	"x-rapidapi-key": "87cf04f455mshd260e6df25f60bap1b8868jsne2efda3b987d"
+    }
+    })
+    .then(response => {
+      return response.json()
+    })
+    .then(body => {
+      console.log("___________________________")
+        console.log(body.data[1])
+
+
+        let titleBehemot = document.querySelector(".ultimate-card-behemot .card-body h6")
+        let imgBehemot = document.querySelector(".ultimate-card-behemot img")
+        let artistNameBehemot = document.querySelector(".ultimate-card-behemot .card-body p")
+
+        titleBehemot.innerHTML = body.data[2].title
+        imgBehemot .src = body.data[1].album.cover_medium
+        artistNameBehemot .innerHTML = body.data[1].artist.name
+      })
+    .catch(err => {
+    console.error(err);
+    })
+  }
+
   window.onload = () => {
     eminemChange()
     metallicaChange()
+    behemothChange()
   }
 </script>
 
