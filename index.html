@@ -496,7 +496,7 @@ h5.card-title{
      </div>
   </div>
 
-  <div class="card p-2 cb mx-2 mb-4" style="min-width: 150px; max-width: 200px;">
+  <div class="card p-2 cb mx-2 mb-4 ultimate-card-metallica" style="min-width: 150px; max-width: 200px;">
     <img src="./assets-home/placeholder vertical.png" class="card-img-top" alt="...">
     <div class="card-body">
       <h6 class="card-title">Best Of Rock 1977</h6>
@@ -641,8 +641,7 @@ h5.card-title{
 
 
 <script>
-  window.onload = () => {
-
+  function eminemChange () {
     fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem", {
 	"method": "GET",
 	"headers": {
@@ -650,49 +649,61 @@ h5.card-title{
 		"x-rapidapi-key": "87cf04f455mshd260e6df25f60bap1b8868jsne2efda3b987d"
 	}
   })
-  .then(response => {
-  	console.log(response)
-    return response.json()
+      .then(response => {
+      	console.log(response)
+        return response.json()
+      })
+      // DOM stuff
+      .then(body => {
+        console.log(body)
+        console.log(body.data[1].title)
+
+        let title = document.querySelector(".ultimate-card-eminem .card-body h6")
+        let img = document.querySelector(".ultimate-card-eminem img")
+        let artistName = document.querySelector(".ultimate-card-eminem .card-body p")
+
+        title.innerHTML = body.data[1].title
+        img.src = body.data[1].album.cover_medium
+        artistName.innerHTML = body.data[1].artist.name
+      })
+      .catch(err => {
+      	console.error(err)
+      });
+}
+
+  function metallicaChange () {
+    fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=metallica", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+		"x-rapidapi-key": "87cf04f455mshd260e6df25f60bap1b8868jsne2efda3b987d"
+	}
   })
-  // DOM stuff
-  .then(body => {
-    console.log(body)
-    console.log(body.data[1].title)
+      .then(response => {
+      	console.log(response);
+        return response.json()
+      })
+      .then(body => {
+        // console.log(body)
+        console.log(body.data[1])
 
+        let titleMetallica = document.querySelector(".ultimate-card-metallica .card-body h6")
+        let imgMetallica = document.querySelector(".ultimate-card-metallica img")
+        let artistNameMetallica = document.querySelector(".ultimate-card-metallica .card-body p")
 
-    let title = document.querySelector(".ultimate-card-eminem .card-body h6")
-    let img = document.querySelector(".ultimate-card-eminem img")
-    let artistName = document.querySelector(".ultimate-card-eminem .card-body p")
-
-    title.innerHTML = body.data[1].title
-    img.src = body.data[1].album.cover_medium
-    artistName.innerHTML = body.data[1].artist.name
-
-
-
-
-  })
-  .catch(err => {
-  	console.error(err)
-  });
+        titleMetallica.innerHTML = body.data[2].title
+        imgMetallica .src = body.data[1].album.cover_medium
+        artistNameMetallica .innerHTML = body.data[1].artist.name
+      })
+      .catch(err => {
+      	console.error(err);
+    })
   }
 
-//   fetch("https://deezerdevs-deezer.p.rapidapi.com/track/metallica", {
-// 	"method": "GET",
-// 	"headers": {
-// 		"x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
-// 		"x-rapidapi-key": "87cf04f455mshd260e6df25f60bap1b8868jsne2efda3b987d"
-// 	}
-// })
-// .then(response => {
-//   console.log(response)
-//   return response.json()
-// })
-// .then(data => {
-//   console.log(data)
-// })
-// .catch(err => {
-// 3
+  window.onload = () => {
+    eminemChange()
+    metallicaChange()
+  }
 </script>
 
 
