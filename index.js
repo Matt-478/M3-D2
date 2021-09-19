@@ -15,27 +15,26 @@ function eminemChange () {
       console.log(body) 
       console.log(body.data) //array of objects inside the promise
 
-      const container = document.querySelector(".special-container")
+      const row = document.querySelector(".special-row")
 
       for(let i = 0; i < body.data.length; i++) {
         const obj = body.data[i]
 
         const col = document.createElement("div")
-        col.className = "col-3"
+        col.classList.add("card", "col-4", "p-2", "mx-2", "mb-4", "cb")
+        col.setAttribute("style", "min-width: 150px; max-width: 200px;")
 
         col.innerHTML = `
-        <div class="card p-2 cb mx-2 mb-4" style="min-width: 150px; max-width: 200px;"> 
-          <img src="${obj.album.cover_medium}" class="card-img-top" alt="..."> 
-          <div class="card-body"> 
-            <h6 class="card-title">${obj.album.title}</h6> 
-            <a href="./artist-page.html" style="text-decoration-color: white;">
-            <p class="cardtext">Some Great Artist</p>
-            </a>
-          </div> 
-        </div> 
+        <img src="${obj.album.cover_medium}" class="card-img-top" alt="..." style="height: 182px; width: 182px; object-fit: cover;">
+        <div class="card-body">
+          <h6 class="card-title">${obj.album.title}</h6>
+          <a href="./artist-page.html" style="text-decoration-color: white;">
+          <p class="cardtext">${obj.artist.name}</p>
+          </a>
+        </div>
         `
 
-        container.appendChild(col)
+        row.appendChild(col)
       }
 
 
@@ -71,14 +70,91 @@ function eminemChange () {
     });
 }
 
-// function metallicaChange () {
-// }
+function metallicaChange () {
+  fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=metallica", {
+    "method": "GET",
+    "headers": {
+      "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+      "x-rapidapi-key": "87cf04f455mshd260e6df25f60bap1b8868jsne2efda3b987d"
+    }
+    })
+        .then(response => {
+          // console.log(response)
+          return response.json()
+        })
+        .then(body => {
+    
+          console.log(body) 
+          console.log(body.data) //array of objects inside the promise
+    
+          const row2 = document.querySelector(".special-row2")
+          console.log(row2)
+    
+          for(let i = 0; i < body.data.length; i++) {
+            const obj = body.data[i]
+    
+            const col = document.createElement("div")
+            col.classList.add("card", "col-4", "p-2", "mx-2", "mb-4", "cb")
+            col.setAttribute("style", "min-width: 150px; max-width: 200px;")
+    
+            col.innerHTML = `
+            <img src="${obj.album.cover_medium}" class="card-img-top" alt="..." style="height: 182px; width: 182px; object-fit: cover;">
+            <div class="card-body">
+              <h6 class="card-title">${obj.album.title}</h6>
+              <a href="./artist-page.html" style="text-decoration-color: white;">
+              <p class="cardtext">${obj.artist.name}</p>
+              </a>
+            </div>
+            `
+    
+            row2.appendChild(col)
+}})
+  .catch(err => console.log(err))
+}
 
-// function behemothChange () {
-// }
+function behemothChange () {
+  fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=behemoth", {
+    "method": "GET",
+    "headers": {
+      "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+      "x-rapidapi-key": "87cf04f455mshd260e6df25f60bap1b8868jsne2efda3b987d"
+    }
+    })
+        .then(response => {
+          return response.json()
+        })
+        .then(body => {
+    
+          console.log(body) 
+          console.log(body.data) //array of objects inside the promise
+    
+          const row = document.querySelector(".special-row3")
+          console.log(row)
+    
+          for(let i = 0; i < body.data.length; i++) {
+            const obj = body.data[i]
+    
+            const col = document.createElement("div")
+            col.classList.add("card", "col-4", "p-2", "mx-2", "mb-4", "cb")
+            col.setAttribute("style", "min-width: 150px; max-width: 200px;")
+    
+            col.innerHTML = `
+            <img src="${obj.album.cover_medium}" class="card-img-top" alt="..." style="height: 182px; width: 182px; object-fit: cover;">
+            <div class="card-body">
+              <h6 class="card-title">${obj.album.title}</h6>
+              <a href="./artist-page.html" style="text-decoration-color: white;">
+              <p class="cardtext">${obj.artist.name}</p>
+              </a>
+            </div>
+            `
+    
+            row.appendChild(col)
+}})
+  .catch(err => console.log(err))
+}
 
 window.onload = () => {
   eminemChange()
-  // metallicaChange()
-  // behemothChange()
+  metallicaChange()
+  behemothChange()
 }
