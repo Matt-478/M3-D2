@@ -15,7 +15,7 @@ function eminemChange () {
       console.log(body) 
       console.log(body.data) //array of objects inside the promise
 
-      const row = document.querySelector(".special-row")
+      const container = document.querySelector(".special-container")
 
       for(let i = 0; i < body.data.length; i++) {
         const obj = body.data[i]
@@ -28,11 +28,14 @@ function eminemChange () {
           <img src="${obj.album.cover_medium}" class="card-img-top" alt="..."> 
           <div class="card-body"> 
             <h6 class="card-title">${obj.album.title}</h6> 
+            <a href="./artist-page.html" style="text-decoration-color: white;">
+            <p class="cardtext">Some Great Artist</p>
+            </a>
           </div> 
         </div> 
         `
 
-        row.appendChild(col)
+        container.appendChild(col)
       }
 
 

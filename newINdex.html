@@ -7,14 +7,137 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
   <title>Document</title>
 </head>
+<style>
+  /* The heart of the matter */
+.testimonial-group > .row {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.testimonial-group > .row > .col-4 {
+  display: inline-block;
+}
+</style>
 <body>
 
-  <div class="container">
-    <div class="special-row"></div>
-  </div>
+
+<!-- HORIZONTAL SCROLL -->
+<div class="container">
+  <div class="container testimonial-group">
+    <div class="row">
+        <div class="card col-4 p-2 cb mx-2 mb-4" style="min-width: 150px; max-width: 200px;">
+    <img src="https://images.pond5.com/sad-desperate-man-working-night-footage-089780757_prevstill.jpeg" class="card-img-top" alt="..." style="height: 182px; width: 182px; object-fit: cover;">
+    <div class="card-body">
+      <h6 class="card-title">Striving For Excellence</h6>
+      <a href="./artist-page.html" style="text-decoration-color: white;">
+      <p class="cardtext">Some Great Artist</p>
+      </a>
+   </div>
+        </div>
+      
+        <div class="card p-2 cb mx-2 mb-4 col-4" style="min-width: 150px; max-width: 200px;">
+    <img src="https://images.pond5.com/sad-desperate-man-working-night-footage-089780757_prevstill.jpeg" class="card-img-top" alt="..." style="height: 182px; width: 182px; object-fit: cover;">
+    <div class="card-body">
+      <h6 class="card-title">Striving For Excellence</h6>
+      <a href="./artist-page.html" style="text-decoration-color: white;">
+      <p class="cardtext">Some Great Artist</p>
+      </a>
+   </div>
+        </div>
+      
+        <div class="card p-2 cb mx-2 mb-4 col-4" style="min-width: 150px; max-width: 200px;">
+    <img src="https://images.pond5.com/sad-desperate-man-working-night-footage-089780757_prevstill.jpeg" class="card-img-top" alt="..." style="height: 182px; width: 182px; object-fit: cover;">
+    <div class="card-body">
+      <h6 class="card-title">Striving For Excellence</h6>
+      <a href="./artist-page.html" style="text-decoration-color: white;">
+      <p class="cardtext">Some Great Artist</p>
+      </a>
+   </div>
+        </div>
+      
+        <div class="card col-4 p-2 cb mx-2 mb-4" style="min-width: 150px; max-width: 200px;">
+    <img src="https://images.pond5.com/sad-desperate-man-working-night-footage-089780757_prevstill.jpeg" class="card-img-top" alt="..." style="height: 182px; width: 182px; object-fit: cover;">
+    <div class="card-body">
+      <h6 class="card-title">Striving For Excellence</h6>
+      <a href="./artist-page.html" style="text-decoration-color: white;">
+      <p class="cardtext">Some Great Artist</p>
+      </a>
+   </div>
+        </div>
+      
+        <div class="card p-2 cb mx-2 mb-4 col-4" style="min-width: 150px; max-width: 200px;">
+    <img src="https://images.pond5.com/sad-desperate-man-working-night-footage-089780757_prevstill.jpeg" class="card-img-top" alt="..." style="height: 182px; width: 182px; object-fit: cover;">
+    <div class="card-body">
+      <h6 class="card-title">Striving For Excellence</h6>
+      <a href="./artist-page.html" style="text-decoration-color: white;">
+      <p class="cardtext">Some Great Artist</p>
+      </a>
+   </div>
+        </div>
+      
+        <div class="card p-2 cb mx-2 mb-4 col-4" style="min-width: 150px; max-width: 200px;">
+    <img src="https://images.pond5.com/sad-desperate-man-working-night-footage-089780757_prevstill.jpeg" class="card-img-top" alt="..." style="height: 182px; width: 182px; object-fit: cover;">
+    <div class="card-body">
+      <h6 class="card-title">Striving For Excellence</h6>
+      <a href="./artist-page.html" style="text-decoration-color: white;">
+      <p class="cardtext">Some Great Artist</p>
+      </a>
+   </div>
+        </div>
+      </div>
+    </div>
+</div>
 
 
-  <script src="index.js"></script>
+
+  <script>
+//     window.onload = () =>{
+//   fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem", {
+// "method": "GET",
+// "headers": {
+//   "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+//   "x-rapidapi-key": "87cf04f455mshd260e6df25f60bap1b8868jsne2efda3b987d"
+// }
+// })
+//     .then(response => {
+//       // console.log(response)
+//       return response.json()
+//     })
+//     .then(body => {
+
+//       console.log(body) 
+      // console.log(body.data) //array of objects inside the promise
+
+      // const row = document.querySelector(".row")
+
+      // for(let i = 0; i < body.data.length; i++) {
+      //   const obj = body.data[i]
+
+      //   const col = document.createElement("div")
+      //   col.className = "col-3"
+
+      //   col.innerHTML = `
+      //   <div class="card p-2 cb mx-2 mb-4" style="min-width: 150px; max-width: 200px;"> 
+      //     <img src="${obj.album.cover_medium}" class="card-img-top" alt="..."> 
+      //     <div class="card-body"> 
+      //       <h6 class="card-title">${obj.album.title}</h6> 
+      //       <a href="./artist-page.html" style="text-decoration-color: white;">
+      //       <p class="cardtext">Some Great Artist</p>
+      //       </a>
+      //     </div> 
+      //   </div> 
+      //   `
+
+    //     row.appendChild(col)
+    //   }
+    // })
+    // .catch(err => console.log(err))
+    // }
+  </script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
   
 </body>
 </html>
